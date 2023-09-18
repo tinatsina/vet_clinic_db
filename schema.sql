@@ -1,3 +1,5 @@
+-- Code for creatuing the database
+
 CREATE TABLE animals(
 id int primary key not null,
 name varchar(50) not null,
