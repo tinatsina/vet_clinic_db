@@ -7,3 +7,9 @@ date_of_birth date not null,
 escape_attempts int not null,
 neutered boolean not null,
 weight_kg real not null);
+
+/************************************/
+/******** DAY TWO ASSIGNMENTS *******/
+/************************************/
+
+ALTER TABLE animals ADD species varchar(64);
