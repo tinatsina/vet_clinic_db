@@ -40,3 +40,4 @@ alter table animals
 add column owner_id int references owners(id)
 on delete cascade;
 select * from animals;
+
