@@ -29,6 +29,9 @@ insert into owners (full_name,age) values ('Melody Pond',77);
 insert into owners (full_name,age) values ('Dean Winchester',14);
 insert into owners (full_name,age) values ('Jodie Whittaker',38);
 
+vet_clinic=# insert into species(name) values ('Digimon');
+vet_clinic=# insert into species(name) values ('Pokemon');
+
 update animals
 set species_id = 1 where name like '%mon';
 select * from animals;

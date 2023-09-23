@@ -20,24 +20,20 @@ ALTER TABLE animals ADD species varchar(64);
 
  create table owners (
   id SERIAL,
-  full_name varchar(32),
+  full_name varchar(255),
   age int,
   PRIMARY KEY (id)
 );
 
 create table species (
 	id SERIAL,
-	name varchar(32),
+	name varchar(255),
 	PRIMARY KEY (id)
 );
 
 alter table animals
-add column species_id int references species(id)
-on delete cascade;
-select * from animals;
+add column species_id int references species(id);
 
 alter table animals
-add column owner_id int references owners(id)
-on delete cascade;
-select * from animals;
+add column owner_id int references owners(id);
 
