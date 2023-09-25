@@ -49,3 +49,42 @@ SELECT neutered, sum(escape_attempts) FROM animals GROUP BY neutered;
 
 -- Query 6
 SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2020-12-31' GROUP BY species;
+
+/******************************************************************/
+/********************** QUERIES FROM DAY THREE ********************/
+/******************************************************************/
+
+select name from animals
+inner join owners
+on animals.owner_id = owners.id
+where owners.full_name like 'Melody Pond%';
+
+select animals.name from animals
+inner join species
+on animals.species_id = species.id
+where species_id = 2;
+
+select full_name,animals.name from owners
+left join animals
+on owners.id = animals.owner_id;
+
+select species.name, count(animals.name)
+from animals inner join species on animals.species_id = species.id
+group by species.name;
+
+select animals.name from animals
+inner join owners on animals.owner_id = owners.id
+where escape_attempts = 0
+and owners.full_name like '%Dean Winchester';
+
+select animals.name from animals
+inner join owners on animals.owner_id = owners.id
+where species_id = 1
+and owners.full_name like '%Jennifer Orwell';
+
+select owners.full_name from owners
+left join animals on owners.id = animals.owner_id
+group by owners.full_name
+order by count(owners.full_name)
+desc limit 1;
+
