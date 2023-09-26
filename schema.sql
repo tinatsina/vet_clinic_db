@@ -39,3 +39,30 @@ add column species_id int references species(id);
 alter table animals
 add column owner_id int references owners(id);
 
+/************************************************/
+/************* DAY FOUR ASSIGNMENTS *************/
+/************************************************/
+
+create table vets (
+  id serial,
+  name varchar(255),
+  age int,date_of_graduation date,
+  primary key(id)
+  );
+
+create table specialization(
+  id serial,
+  species_id int references species(id) on delete cascade,
+  vets_id int references vets(id) on delete cascade,
+  primary key(id)
+  );
+ 
+create table visits (
+   id serial,
+   date_of_visit date,
+   animals_id int references animals(id) on delete cascade,
+   vets_id int references vets(id) on delete cascade,
+   primary key (id)
+ );
+
+
